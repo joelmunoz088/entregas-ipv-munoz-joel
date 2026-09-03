@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cnflwsa05xige"]
+
+[ext_resource type="Script" uid="uid://bsdedgrecxijt" path="res://projectile.gd" id="1_qxf0c"]
+[ext_resource type="Texture2D" uid="uid://dy4fne65rpsc2" path="res://assets/textures/proyectile_player.png" id="2_dgwo2"]
+
+[node name="Projectile" type="Area2D" unique_id=1976764304]
+script = ExtResource("1_qxf0c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2092050590]
+texture = ExtResource("2_dgwo2")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=206586072]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

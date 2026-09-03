@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dva7urch5tmum"]
+
+[ext_resource type="Texture2D" uid="uid://d2ug0mybgeebc" path="res://assets/textures/turret.png" id="1_3oylf"]
+[ext_resource type="Script" uid="uid://b3h00mtt72yrs" path="res://turret.gd" id="1_tjdg3"]
+
+[node name="Turret" type="Node2D" unique_id=1535817747]
+script = ExtResource("1_tjdg3")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=176889378]
+rotation = 1.5707964
+texture = ExtResource("1_3oylf")
+
+[node name="FirePosition" type="Marker2D" parent="." unique_id=919400671]
+position = Vector2(30, 0)
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=613510629]
+autostart = true
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
