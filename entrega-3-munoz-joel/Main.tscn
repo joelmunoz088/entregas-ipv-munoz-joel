@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://dnc5muoeyfwah"]
+
+[ext_resource type="PackedScene" uid="uid://vqu8xh4hhedx" path="res://entities/player/Player.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://cwss7yl8udbui" path="res://assets/textures/background.png" id="2"]
+[ext_resource type="Script" uid="uid://bkmvt4ya2xfm8" path="res://Main.gd" id="3"]
+[ext_resource type="PackedScene" uid="uid://bscjwoaotlcqc" path="res://entities/enemies/Turret.tscn" id="4"]
+[ext_resource type="Script" uid="uid://ertnqm8kd3lw" path="res://entities/enemies/TurretsSpawner.gd" id="5"]
+[ext_resource type="PackedScene" uid="uid://cvunk4gcmuts3" path="res://box.tscn" id="5_lgr22"]
+[ext_resource type="Texture2D" uid="uid://dwg3vpmlm24nh" path="res://assets/textures/floor.png" id="6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_81mdn"]
+size = Vector2(109.14761, 67.907524)
+
+[node name="Main" type="Node" unique_id=1788691940]
+script = ExtResource("3")
+
+[node name="Background" type="TextureRect" parent="." unique_id=477178707]
+anchors_preset = -1
+anchor_right = 1.621
+anchor_bottom = 0.98800004
+offset_right = 21.199951
+offset_bottom = -36.224
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2")
+expand_mode = 1
+
+[node name="Player" parent="." unique_id=1567161429 instance=ExtResource("1")]
+position = Vector2(413.003, 395.272)
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=762554447]
+position = Vector2(400, 513.5)
+scale = Vector2(12.1212, 2.62121)
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor" unique_id=69031613]
+position = Vector2(21.285046, 0.76301503)
+scale = Vector2(1.6450015, 1.0231217)
+texture = ExtResource("6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1303378822]
+position = Vector2(21.491272, 0.9537811)
+shape = SubResource("RectangleShape2D_81mdn")
+
+[node name="Box" parent="Floor" unique_id=840638399 instance=ExtResource("5_lgr22")]
+position = Vector2(-22.027523, -130.66484)
+
+[node name="Box2" parent="Floor" unique_id=76003420 instance=ExtResource("5_lgr22")]
+position = Vector2(7.095008, -163.09262)
+
+[node name="Box3" parent="Floor" unique_id=1318745605 instance=ExtResource("5_lgr22")]
+position = Vector2(24.255024, -112.35269)
+
+[node name="TurretsSpawner" type="Node" parent="." unique_id=998383105]
+script = ExtResource("5")
+turret_scene = ExtResource("4")
